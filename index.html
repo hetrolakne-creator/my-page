@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Альцгеймер</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    padding: 20px;
+    background: linear-gradient(-45deg, #000000, #1a1a1a, #0a0a0a, #2b2b2b);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    overflow-x: hidden;
+  }
+
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .card {
+    background: rgba(15, 15, 15, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255,255,255,0.1);
+    position: relative;
+    z-index: 2;
+  }
+
+  .avatar {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    background: #222;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+    transition: transform 0.3s ease;
+  }
+
+  .avatar:hover {
+    transform: scale(1.05);
+  }
+
+  h1 {
+    color: #fff;
+    font-size: 26px;
+    margin-bottom: 25px;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .link-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+  }
+
+  .link-btn:hover, .link-btn:active {
+    background: rgba(255, 255, 255, 0.15); 
+    border-color: rgba(255, 255, 255, 0.5); 
+    transform: translateY(-2px);
+    color: #ffffff;
+  }
+
+  .link-btn .platform {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .link-btn .icon {
+    width: 28px;  
+    height: 28px; 
+    object-fit: contain; 
+    flex-shrink: 0; 
+  }
+
+  .link-btn .icon-tiktok {
+    width: 32px;   
+    height: 32px;
+  }
+
+  .link-btn .value {
+    color: #888;
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+
+  .link-btn:hover .value {
+    color: #ddd;
+  }
+
+  .copy-alert {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #fff;
+    color: #000;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    opacity: 0;
+    z-index: 10;
+    box-shadow: 0 5px 20px rgba(255,255,255,0.2);
+  }
+  
+  .copy-alert.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <!-- НОВАЯ АВАТАРКА -->
+  <img src="https://i.postimg.cc/Dyg7fyyP/1242.jpg" alt="Аватарка" class="avatar">
+  
+  <h1>Альцгеймер</h1>
+
+  <div class="links">
+    <!-- 1. STEAM -->
+    <a href="https://steamcommunity.com/profiles/76561199056484937" target="_blank" class="link-btn steam">
+      <span class="platform">
+        <img src="https://i.postimg.cc/k2K3wLsf/1174.png" alt="Steam" class="icon">
+        Steam
+      </span>
+      <span class="value">43232489</span>
+    </a>
+
+    <!-- 2. TELEGRAM -->
+    <div class="link-btn tg" onclick="copyText('@Alcgeymer12', this)">
+      <span class="platform">
+        <img src="https://i.postimg.cc/18whMbBM/1160.png" alt="Telegram" class="icon">
+        Telegram
+      </span>
+      <span class="value">@Alcgeymer12</span>
+    </div>
+
+    <!-- 3. DISCORD -->
+    <div class="link-btn ds" onclick="copyText('nightw1shh', this)">
+      <span class="platform">
+        <img src="https://i.postimg.cc/9DZ51sbB/1161.webp" alt="Discord" class="icon">
+        Discord
+      </span>
+      <span class="value">nightw1shh</span>
+    </div>
+
+    <!-- 4. TIKTOK -->
+    <a href="https://tiktok.com/@rzteblan" target="_blank" class="link-btn tt">
+      <span class="platform">
+        <img src="https://i.postimg.cc/sBJFCStJ/1173.png" alt="TikTok" class="icon icon-tiktok">
+        TikTok
+      </span>
+      <span class="value">@rzteblan</span>
+    </a>
+  </div>
+</div>
+
+<div class="copy-alert" id="alert">Скопировано! ✅</div>
+
+<script>
+  function copyText(text, element) {
+    navigator.clipboard.writeText(text).then(() => {
+      const alertBox = document.getElementById('alert');
+      alertBox.classList.add('show');
+      
+      const originalValue = element.querySelector('.value').innerText;
+      element.querySelector('.value').innerText = 'Скопировано!';
+      
+      setTimeout(() => {
+        alertBox.classList.remove('show');
+        element.querySelector('.value').innerText = originalValue;
+      }, 1500);
+    });
+  }
+</script>
+
+</body>
+</html>
