@@ -134,6 +134,7 @@
     opacity: 0;
     z-index: 10;
     box-shadow: 0 5px 20px rgba(255,255,255,0.2);
+    pointer-events: none;
   }
   
   .copy-alert.show {
@@ -146,7 +147,7 @@
 
 <div class="card">
   <!-- НОВАЯ АВАТАРКА -->
-  <img src="https://i.postimg.cc/Dyg7fyyP/1242.jpg" alt="Аватарка" class="avatar">
+  <img src="https://i.postimg.cc/9FjQZ3yJ/1470.jpg" alt="Аватарка" class="avatar">
   
   <h1>Альцгеймер</h1>
 
@@ -154,7 +155,7 @@
     <!-- 1. STEAM -->
     <a href="https://steamcommunity.com/profiles/76561199056484937" target="_blank" class="link-btn steam">
       <span class="platform">
-        <img src="https://i.postimg.cc/k2K3wLsf/1174.png" alt="Steam" class="icon">
+        <img src="https://i.postimg.cc/sBJFCStJ/1173.png" alt="Steam" class="icon">
         Steam
       </span>
       <span class="value">43232489</span>
@@ -181,7 +182,7 @@
     <!-- 4. TIKTOK -->
     <a href="https://tiktok.com/@rzteblan" target="_blank" class="link-btn tt">
       <span class="platform">
-        <img src="https://i.postimg.cc/sBJFCStJ/1173.png" alt="TikTok" class="icon icon-tiktok">
+        <img src="https://i.postimg.cc/k2K3wLsf/1174.png" alt="TikTok" class="icon icon-tiktok">
         TikTok
       </span>
       <span class="value">@rzteblan</span>
@@ -189,7 +190,7 @@
   </div>
 </div>
 
-<div class="copy-alert" id="alert">Скопировано! ✅</div>
+<div class="copy-alert" id="alert">Скопировано</div>
 
 <script>
   function copyText(text, element) {
@@ -198,7 +199,7 @@
       alertBox.classList.add('show');
       
       const originalValue = element.querySelector('.value').innerText;
-      element.querySelector('.value').innerText = 'Скопировано!';
+      element.querySelector('.value').innerText = 'Скопировано';
       
       setTimeout(() => {
         alertBox.classList.remove('show');
